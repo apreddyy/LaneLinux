@@ -68,7 +68,7 @@ int main(int, const char * const[])
 		processedout_initialize();
 		double PointsA[720];
 		double PointsB[720];
-		/*VideoWriter video("/home/pramod/cuda-workspace/LaneSystem/Debug/videoin.avi", CV_FOURCC('P','I','M','1'), 25, Size(1280, 720), true);*/
+		/*VideoWriter video("/pathtoproject/Debug/videoin.avi", CV_FOURCC('P','I','M','1'), 25, Size(1280, 720), true);*/
 		for (;;)
 		{
 			cap >> frame;

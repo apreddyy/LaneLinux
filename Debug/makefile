@@ -1,5 +1,5 @@
 ################################################################################
-# Automatically-generated file. Do not edit!
+
 ################################################################################
 
 -include ../makefile.init
@@ -58,7 +58,7 @@ all: LaneSystem
 LaneSystem: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: NVCC Linker'
-	/usr/local/cuda-9.0/bin/nvcc --cudart static -L/usr/lib -L/usr/aarch64-linux-gnu/lib --relocatable-device-code=false -gencode arch=compute_70,code=compute_70 -gencode arch=compute_70,code=sm_70 -link -o  "LaneSystem" $(OBJS) $(USER_OBJS) $(LIBS)
+	/usr/local/cuda-9.0/bin/nvcc --cudart static -L/usr/lib --relocatable-device-code=false -gencode arch=compute_70,code=compute_70 -gencode arch=compute_70,code=sm_70 -link -o  "LaneSystem" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -1,17 +1,5 @@
 #include "opencv2/opencv.hpp"
 #include <iostream>
-/*
-#include "opencv2/cudaarithm.hpp"
-#include "opencv2/cudabgsegm.hpp"
-#include "opencv2/cudacodec.hpp"
-#include "opencv2/cudafeatures2d.hpp"
-#include "opencv2/cudafilters.hpp"
-#include "opencv2/cudaimgproc.hpp"
-#include "opencv2/cudaobjdetect.hpp"
-#include "opencv2/cudaoptflow.hpp"
-#include "opencv2/cudastereo.hpp"
-#include "opencv2/cudawarping.hpp"
-*/
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include <opencv2/core/core.hpp>
@@ -104,7 +92,6 @@ void processingb_frame(Mat& frame, Mat& src, double PointsA[720], double PointsB
 	{
 		fillPoly(maskImage, &pts, &npts, 1, Scalar(255, 0, 10), 8);
 	}
-	/*unwrap_framein.upload(maskImage);*/
 	unwrap_frame(maskImage, unwrap_frameout);
 	addWeighted(src, 1, unwrap_frameout, 0.5, -1, dst);
 }

@@ -1,10 +1,5 @@
 #include "opencv2/opencv.hpp"
 #include <iostream>
-/*
-#include "opencv2/cudaarithm.hpp"
-#include "opencv2/cudacodec.hpp"
-#include "opencv2/cudaimgproc.hpp"
-*/
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include <opencv2/core/core.hpp>
@@ -26,11 +21,7 @@
 using namespace std;
 using namespace cv;
 
-/*
 
-void processinga_frame(cuda::GpuMat& src, cuda::GpuMat& resize, cuda::GpuMat& dst);
-void processingb_frame(Mat& frame, cuda::GpuMat& src, double PointsA[720], double PointsB[720], int AlertSide, double center_data[], cuda::GpuMat& dst);
-*/
 
 void processinga_frame(Mat& src, Mat& resize, Mat& dst);
 void processingb_frame(Mat& frame, Mat& src, double PointsA[720], double PointsB[720], int AlertSide, double center_data[], Mat& dst);
@@ -49,7 +40,6 @@ int main(int, const char * const[])
 	{
 		Mat frame,  cudaout_frame, frame_out;
 		Mat process_framein, process_frame, process_frameout, resize_frame;
-	/*	cuda::GpuMat process_framein, process_frame, process_frameout, resize_frame;*/
 		int Width;
 		int Height;
 		Width = 640;
@@ -68,15 +58,13 @@ int main(int, const char * const[])
 		processedout_initialize();
 		double PointsA[720];
 		double PointsB[720];
-		/*VideoWriter video("/pathtoproject/Debug/videoin.avi", CV_FOURCC('P','I','M','1'), 25, Size(1280, 720), true);*/
+		/*VideoWriter video("/home/pramod/cuda-workspace/LaneSystem/Debug/videoin.avi", CV_FOURCC('P','I','M','1'), 25, Size(1280, 720), true);*/
 		for (;;)
 		{
 			cap >> frame;
 			if (frame.empty())
 				break;
-			/*process_framein.upload(frame);*/
 			processinga_frame(frame, resize_frame, process_frame);
-			/*process_frame.download(cudaout_frame)*/;
 			int i, j;
 			for (i = 0; i < Width; i++)
 				for (j = 0; j < Height; j++)
@@ -90,9 +78,8 @@ int main(int, const char * const[])
 			LaneLogicModel.step();
 			LaneLogicModel.step();
 			curvature = double(LaneLogicModel.LaneLogic_Y.CenterCurvature);
-			cout << left_curvature << ";" << curvature << ";" << right_curveature << endl;
-			/*process_frameout.download(frame_out);*/
-			/*video.write(frame);*/
+			/*cout << left_curvature << ";" << curvature << ";" << right_curveature << endl;
+			video.write(frame);*/
 			imshow("FrameL", process_frameout);
 			if (waitKey(10) >= 0)break;				
 		}

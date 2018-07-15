@@ -12,7 +12,6 @@ CPP_SRCS += \
 ../Leftprocessing.cpp \
 ../RESIZEFrame.cpp \
 ../RightProcessing.cpp \
-../adjust.cpp \
 ../processedout.cpp \
 ../processedout_emxAPI.cpp \
 ../processedout_emxutil.cpp \
@@ -33,7 +32,6 @@ OBJS += \
 ./Leftprocessing.o \
 ./RESIZEFrame.o \
 ./RightProcessing.o \
-./adjust.o \
 ./processedout.o \
 ./processedout_emxAPI.o \
 ./processedout_emxutil.o \
@@ -54,7 +52,6 @@ CPP_DEPS += \
 ./Leftprocessing.d \
 ./RESIZEFrame.d \
 ./RightProcessing.d \
-./adjust.d \
 ./processedout.d \
 ./processedout_emxAPI.d \
 ./processedout_emxutil.d \
